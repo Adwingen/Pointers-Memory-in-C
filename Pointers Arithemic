@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+
+
+
+int main()
+{
+
+	int num = 30;
+	int* p;
+
+	//imprime 30
+	printf("%d\n", num);
+
+	p = &num;
+	//imprime lixo no endereço de num
+	printf("%d\n", &num);
+	//imprime lixo no endereço de num
+	printf("%d\n", p);
+
+	*p = 20;
+	//imprime 20
+	printf("%d\n", num);
+
+
+	return 0;
+}
