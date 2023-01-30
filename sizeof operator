@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+
+
+
+int main()
+{
+
+	int grade = 80;
+	//print 4
+	printf("size of variable = %d\n", sizeof(grade));
+	
+	double grade2 = 79.9;
+	//print 8
+	printf("size of variable = %d\n", sizeof(grade2));
+
+	int grade3 = 80, grade4 = 90;
+	//print 4
+	printf("size of variable = %d\n", sizeof(grade3 + grade4));
+
+	int grade5 = 80, grade6 = 90;
+	//print 8
+	printf("size of variable = %d\n", sizeof(grade5) + sizeof(grade6));
+
+	//print 8
+	printf("size double = %d\n", sizeof(double));
+
+	//print 1
+	printf("size char = %d\n", sizeof(char));
+
+	//print 4
+	printf("size int = %d\n", sizeof(int));
+
+	//print 4
+	printf("size float = %d\n", sizeof(float));
+
+	//print 1
+	printf("size 'a' = %d\n", sizeof('a'));
+
+	//print 2
+	printf("size a = % d\n", sizeof("a"));
+
+
+
+
+
+	return 0;
+}
