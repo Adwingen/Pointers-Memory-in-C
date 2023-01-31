@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+
+
+void swapNumbers(int* ptr1, int* ptr2)
+{
+	int temp;
+	temp = *ptr1;
+	*ptr1 = *ptr2;
+	*ptr2 = temp;
+
+}
+
+
+
+
+int main()
+{
+
+	int num1, num2;
+	
+
+	puts("Introduza dois numeros inteiros");
+	scanf("%d %d", &num1, &num2);
+
+	swapNumbers(&num1,&num2);
+	printf("num1 %d num2 %d", num1,num2);
+
+
+	return 0;
+}
