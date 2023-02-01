@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <malloc.h>
+
+
+void genericSwap(void* a, void* b, int size)
+{
+	void* tempMemory = malloc(size);
+
+	memcpy(tempMemory, a, size);
+	memcpy(a, b, size);
+	memcpy(b, tempMemory, size);
+
+	free(tempMemory);
+}
+
+
+int main()
+{
+
+	double a, b;
+	puts("Insira dois numeros com virgula separado por um espaco");
+	scanf("%lf %lf", &a, &b);
+	printf("Numeros antes da troca\n Double 1 %.2lf\n Double 2 %.2lf\n",a,b);
+	genericSwap(&a, &b, sizeof(double));
+	printf("Numeros depois da troca\n Double 1 %.2lf\n Double 2 %.2lf", a, b);
+
+	return 0;
+}
