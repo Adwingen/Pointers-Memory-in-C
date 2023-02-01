@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <malloc.h>
+
+#define SIZE 8
+
+void findMaxInArray(int* arr, int size, int *max)
+{
+	int i;
+	*max = arr[0];
+	for (i = 1; i < SIZE; i++)
+	{
+		if (arr[i] > *max)
+		{
+			*max = arr[i];
+		}
+	
+	}
+ 			
+}
+
+int main()
+{
+
+	int grade[] = { 200,45,58,400,98,78,100,350 };
+	int max;
+	
+	findMaxInArray(grade, SIZE, &max);
+
+	printf("O valor maximo no arrar e %d", max);
+
+
+	return 0;
+}
