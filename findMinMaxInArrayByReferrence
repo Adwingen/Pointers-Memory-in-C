@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <malloc.h>
+
+#define SIZE 5
+
+void findMinMaxInArrayByReferrence(int* arr, int size, int* minValue, int* maxValue)
+{
+	int i;
+	*minValue = arr[0];
+	*maxValue = arr[0];
+	for (i = 1; i < size; i++)
+	{
+		if (arr[i] < *minValue)
+			*minValue = arr[i];
+		if (arr[i] > *maxValue)
+			*maxValue = arr[i];
+	}
+}
+
+int main()
+{
+
+	int grade[SIZE] = { 45,69,89,785,12 };
+	int min, max;
+
+	findMinMaxInArrayByReferrence(grade, SIZE, &min, &max);
+
+	printf("MAX VALUE #%d \n", max);
+	printf("MIN VALUE #%d ", min);
+	
+	return 0;
+}
