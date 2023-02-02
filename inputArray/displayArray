@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <malloc.h>
+
+#define SIZE 5
+
+//InputArray functiom
+void inputArray(int* arr, int size)
+{
+	int i;
+	for (i = 0; i < size; i++)
+	{
+		printf("Enter value #%d: ", i + 1);
+		scanf("%d", &arr[i]);
+
+	}
+}
+
+//DisplayArray functiom
+void displayArray(int* arr, int size)
+{
+	int i;
+	for (i = 0; i < size; i++)
+	{
+		printf("Value #%d: %d\n", i + 1,arr[i]);
+	}
+}
+
+int main()
+{
+
+	int grade[SIZE];
+	
+	inputArray(grade, SIZE);
+
+	displayArray(grade, SIZE);
+	
+	return 0;
+}
