@@ -1,0 +1,52 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <malloc.h>
+
+#define SIZE 9
+
+
+int theArrayIsSortedRecursive(int* arr, int size, int* isRealySorted)
+{
+	int result; // returned result
+	if (size == 1) // the array has just 1 element
+	{
+		*isRealySorted = 1; //we will assume the array is really sorted
+		return 1;
+	}
+
+	result = theArrayIsSortedRecursive(arr, size - 1, isRealySorted);
+
+	if (result != 0 && arr[size - 1] == arr[size - 2])
+	{
+		*isRealySorted = 0;
+	}
+
+	if (result != 0 && arr[size - 1] < arr[size - 2])
+	{
+		*isRealySorted = 0;
+		return 0;
+	}
+	return result;
+
+}
+
+
+int main()
+{
+
+	int array[SIZE] = { 1,2,3,4,5,6,7,8,9 };
+	int result, isRealySortedFlag;
+
+	result = theArrayIsSortedRecursive(array, SIZE,&isRealySortedFlag);
+	if (result == 1 && isRealySortedFlag == 1)
+		printf("Array Realy Sorted\n");
+	if (result == 1 && isRealySortedFlag == 0 )
+		printf("Array Sorted\n");
+	if (result == 0 && isRealySortedFlag == 0)
+		printf("Array Not Sorted\n");
+
+	return 0;
+}
