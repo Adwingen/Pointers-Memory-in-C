@@ -1,0 +1,44 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <malloc.h>
+
+#define SIZE 5
+
+
+int theArrayIsSorted(int* arr, int size, int* isRealySorted)
+{
+	int i;
+	*isRealySorted = 1;
+	for (i = 1; i < size; i++)
+	{
+		if (arr[i] <= arr[i - 1]) //elemento da direita é <= ao da esquerda não é RealySorted
+			*isRealySorted = 0;
+
+		if (arr[i] < arr[i - 1]) //elemento da direira é inferior ao esquerda não é Sorted
+			return 0;
+	}
+
+	return 1;
+
+}
+
+
+int main()
+{
+
+	int array[SIZE] = { 1,2,3,4,5 };
+	int result, isRealySortedFlag;
+
+	result = theArrayIsSorted(array, SIZE,&isRealySortedFlag);
+	if (result == 1 && isRealySortedFlag == 1)
+		printf("Array Realy Sorted\n");
+	if (result == 1 && isRealySortedFlag == 0 )
+		printf("Array Sorted\n");
+	if (result == 0 && isRealySortedFlag == 0)
+		printf("Array Not Sorted\n");
+
+	return 0;
+}
