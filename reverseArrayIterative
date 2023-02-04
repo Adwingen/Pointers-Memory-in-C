@@ -1,0 +1,53 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <malloc.h>
+
+#define SIZE 6
+
+
+void swap(char* ptr1, char* ptr2)
+{
+	char temp;
+	temp = *ptr1;
+	*ptr1 = *ptr2;
+	*ptr2 = temp;
+}
+
+void printArray(char* arr, int size)
+{
+	int i;
+	for (i = 0; i < size; i++)
+		printf("%c ", arr[i]);
+
+	printf("\n");
+
+}
+
+void reverseArrayIterative(char* arr, int size)
+{
+	int i;
+	for (i = 0; i < size / 2; i++)
+		swap(&arr[i], &arr[size - 1 - i]);
+}
+
+
+int main()
+{
+
+	char array[SIZE] = { 'A','B','C','D' ,'E','F'};
+
+	puts("Array original");
+	printArray(array, SIZE);
+
+	reverseArrayIterative(array, SIZE);
+
+
+	puts("Array reverse");
+	printArray(array, SIZE);
+
+
+	return 0;
+}
