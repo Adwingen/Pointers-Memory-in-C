@@ -1,0 +1,47 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <malloc.h>
+
+#define SIZE 10
+
+
+void findTheSecondSmallestValueInArray(int* arr, int size, int* minValue,int *secondMinValue)
+{
+	int i;
+	*minValue = arr[0];
+	
+	for (i = 1; i < size; i++)
+	{
+		if (arr[i] < *minValue)
+			*minValue = arr[i];
+		if (arr[i] > *secondMinValue)
+			*secondMinValue = arr[i];
+	}
+	
+	for (i = 0; i < size; i++)
+	{
+		if (arr[i] < *secondMinValue && arr[i] > *minValue)
+			*secondMinValue = arr[i];
+	}
+	
+}
+
+
+int main()
+{
+
+	int array[SIZE] = { 5,0,8,7,10,12,15,2,3,6 };
+	int minValue;
+	int secondMinValue;
+
+	findTheSecondSmallestValueInArray(array, SIZE, &minValue,&secondMinValue);
+
+	printf("The first min value is %d\n", minValue);
+	printf("The second min value is %d\n", secondMinValue);
+
+
+	return 0;
+}
