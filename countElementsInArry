@@ -1,0 +1,54 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <malloc.h>
+
+#define SIZE 6
+
+
+void countElementsInArry(int* arr, int size)
+{
+	int i, j;
+	int count;
+	int leftFlag;
+
+	for (i = 0; i < size; i++)
+	{
+		count = 1;
+		leftFlag = 0;
+		//left part...
+		for (j = 0; j < i; j++)
+		{
+			if (arr[j] == arr[i])
+			{
+				leftFlag = 1;
+				break;
+			}
+		}
+		if (leftFlag == 1)
+			continue;
+		//right part
+		for (j = i + 1; j < size; j++)
+		{
+			if (arr[j] == arr[i])
+				count++;
+		}
+		printf("Value %d apears %d\n", arr[i], count);
+	}
+
+
+}
+
+
+int main()
+{
+
+	int array[SIZE] = { 5,6,7,5,6,8};
+
+	countElementsInArry(array, SIZE);
+
+
+	return 0;
+}
