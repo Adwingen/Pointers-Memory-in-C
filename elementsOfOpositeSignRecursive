@@ -1,0 +1,43 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <malloc.h>
+
+#define SIZE 3
+
+
+int elementsOfOpositeSignRecursive(int* arr, int size)
+{
+	
+	//int result;
+	
+	if (size <= 1)
+		return 1;
+
+	if (arr[0] >= 0 && arr[1] >= 0 || arr[0] < 0 && arr[1] < 0)
+		return 0;
+	else
+		return elementsOfOpositeSignRecursive(arr + 1, size-1);
+
+}
+
+
+
+int main()
+{
+
+	int array[SIZE] = { 1,-2,4};
+	int result;
+
+
+	result = elementsOfOpositeSignRecursive(array, SIZE);
+	if (result)
+		printf("The array have the elements of the oposite sign\n");
+	else
+		printf("The array DON´T have the elements of the oposite sign\n");
+		
+
+	return 0;
+}
