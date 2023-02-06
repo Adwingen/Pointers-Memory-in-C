@@ -1,0 +1,41 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <malloc.h>
+
+#define SIZE 6
+
+
+int isArrayAlternatingSignRecursive(int* arr, int size)
+{
+	
+	//int result;
+	if (size == 1)
+		return 1;
+
+	if (arr[size-1] * arr[size-2] >=0)
+		return 0;
+	else
+		return isArrayAlternatingSignRecursive(arr, size-1);
+
+}
+
+
+int main()
+{
+
+	int array[SIZE] = { 1,-2,4,-7,6,-2};
+	int result;
+
+
+	result = isArrayAlternatingSignRecursive(array, SIZE);
+	if (result)
+		printf("The array have the elements of the oposite sign\n");
+	else
+		printf("The array DON´T have the elements of the oposite sign\n");
+		
+
+	return 0;
+}
