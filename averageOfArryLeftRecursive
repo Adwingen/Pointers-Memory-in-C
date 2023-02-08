@@ -1,0 +1,38 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <malloc.h>
+
+#define SIZE 4
+
+
+float averageOfArryLeftRecursive(int* arr, int size)
+{
+	double avgSoFar;
+	if (size == 1)
+		return arr[0];
+
+	avgSoFar = averageOfArryLeftRecursive(arr + 1, size - 1);
+
+	return (avgSoFar * (size - 1) + arr[0]) / size;
+	
+}
+
+
+
+int main()
+{
+
+	int array[SIZE] = {1,4,3,5};
+	float result;
+
+	result = averageOfArryLeftRecursive(array, SIZE);
+
+	printf("The average of array is %lg", result);
+	
+
+		
+	return 0;
+}
