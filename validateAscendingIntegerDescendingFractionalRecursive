@@ -1,0 +1,62 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <malloc.h>
+
+#define SIZE 3
+
+
+int validateAscendingIntegerDescendingFractionalRecursive(float* arr, int size)
+{
+	
+	int integerNum1;
+	float fracionalNum1;
+	int integerNum2;
+	float fracionalNum2;
+	if (size == 1)
+		return 1;
+
+	integerNum1 = (int)arr[0];
+	fracionalNum1 = arr[0] - integerNum1;
+	integerNum2 = (int)arr[1];
+	fracionalNum2 = arr[1] - integerNum2;
+
+	if (integerNum1 < integerNum2 && fracionalNum1 > fracionalNum2)
+		validateAscendingIntegerDescendingFractionalRecursive(arr + 1, size - 1);
+	else
+		return 0;
+
+}
+int validateAscendingIntegerDescendingFractionalRecursive2(float* arr, int size)
+{
+
+
+	if (size == 1)
+		return 1;
+
+	if ((int)arr[0] < (int)arr[1] && arr[0] - (int)arr[0] > arr[1] - (int)arr[1])
+		validateAscendingIntegerDescendingFractionalRecursive2(arr + 1, size - 1);
+	else
+		return 0;
+
+}
+
+
+int main()
+{
+
+	float array[SIZE] = {1.4,3.25,4.5};
+	float result;
+
+	result = validateAscendingIntegerDescendingFractionalRecursive2(array, SIZE);
+
+	if(result)
+		printf("integer ascending OK fracional descending OK");
+	else
+		printf("integer ascending OK fracional descending NOTOK");
+
+		
+	return 0;
+}
