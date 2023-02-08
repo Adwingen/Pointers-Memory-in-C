@@ -1,0 +1,49 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <malloc.h>
+
+#define SIZE 4
+
+
+void printfFromTheLeftRecursive(int* arr, int size)
+{
+	
+	if (size > 0)
+	{
+		printf("%d ", arr[0]);
+		printfFromTheLeftRecursive(arr + 1, size - 1);
+
+	}
+		
+
+	 
+
+}
+
+void printfFromTheRighttRecursive(int* arr, int size)
+{
+
+	if (size > 0)
+	{
+		printf("%d ", arr[size - 1]);
+		printfFromTheRighttRecursive(arr, size - 1);
+	}
+	
+}
+
+
+int main()
+{
+
+	int array[SIZE] = {1,3,2,4};
+	
+	printfFromTheLeftRecursive(array, SIZE);
+	puts("");
+	printfFromTheRighttRecursive(array, SIZE);
+	
+		
+	return 0;
+}
