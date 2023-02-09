@@ -1,0 +1,38 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <malloc.h>
+
+#define SIZE 3
+
+
+void binaryRecursive(int n)
+{
+	
+	
+	if (n <= 1)
+		printf("%d", n);
+	else
+	{
+		
+		binaryRecursive(n / 2);
+		printf("%d", n % 2);
+		
+	}
+
+}
+
+
+
+int main()
+{
+
+	int bynaryNum;
+	scanf("%d", &bynaryNum);
+
+	binaryRecursive(bynaryNum);
+
+
+}
