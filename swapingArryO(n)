@@ -1,0 +1,54 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <malloc.h>
+
+#define SIZE 5
+
+
+
+void swap(int* val1, int* val2)
+{
+	int temp;
+	temp = *val1;
+	*val1 = *val2;
+	*val2 = temp;
+}
+
+void swapArrayON(int* arr1, int* arr2)
+{
+	int i;
+	for (i = 0; i < SIZE; i++)
+		swap(&arr1[i], &arr2[i]);
+}
+
+void printArry(int* arr)
+{
+	int i;
+	for (i = 0; i < SIZE; i++)
+		printf("%d ", arr[i]);
+
+	printf("\n");
+}
+
+
+
+int main()
+{
+
+	int arry1[SIZE] = { 1,2,3,4,5 };
+	int arry2[SIZE] = { 10,20,30,40,50 };
+
+	printf("Arry values BEFORE swap\n");
+	printArry(arry1);
+	printArry(arry2);
+	swapArrayON(arry1, arry2);
+	printf("Arry values AFTER swap\n");
+	printArry(arry1);
+	printArry(arry2);
+
+	return 0;
+
+}
