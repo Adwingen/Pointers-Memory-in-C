@@ -1,0 +1,86 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <malloc.h>
+
+#define SIZE 5
+
+
+
+void swap(int* val1, int* val2)
+{
+	int temp;
+	temp = *val1;
+	*val1 = *val2;
+	*val2 = temp;
+}
+
+void swapArrayON(int* arr1, int* arr2)
+{
+	int i;
+	for (i = 0; i < SIZE; i++)
+		swap(&arr1[i], &arr2[i]);
+}
+
+void swapArray01(int** ptr1, int** ptr2)
+{
+	int* temp;
+
+	temp = *ptr1;
+	*ptr1 = *ptr2;
+	*ptr2 = temp;
+
+}
+
+void printArry(int* arr)
+{
+	int i;
+	for (i = 0; i < SIZE; i++)
+		printf("%d ", arr[i]);
+
+	printf("\n");
+}
+
+int* generateArray(int size)
+{
+	int i;
+	int* arr;
+	arr = (int*)malloc(size * sizeof(int));
+	for (i = 0; i < size; i++)
+		scanf("%d", &arr[i]);
+
+	return arr;
+
+}
+
+
+
+int main()
+{
+
+	int sizeArr1, sizeArr2;
+	int* Arr1, * Arr2;
+
+	printf("Enter a size for Array1 ");
+	scanf("%d", &sizeArr1);
+	printf("Enter a size for Array2 ");
+	scanf("%d", &sizeArr2);
+
+	swapArray01(&Arr1, &Arr2);
+
+	Arr1 = generateArray(sizeArr1);
+	Arr2 = generateArray(sizeArr2);
+
+	printf("Arry values BEFORE swap\n");
+	printArry(Arr1);
+	printArry(Arr2);
+	swapArrayON(Arr1, Arr2);
+	printf("Arry values AFTER swap\n");
+	printArry(Arr1);
+	printArry(Arr2);
+
+	return 0;
+
+}
